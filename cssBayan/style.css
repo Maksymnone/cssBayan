@@ -95,8 +95,8 @@ body {
   color: black;
 }
 
-.mem-input:active ~ .mem-img-container {
-  opacity: 0.5;
+.mem-input:active ~ .mem-img-container>.mem-img {
+  opacity: .5;
 }
 
 /* active style end */
