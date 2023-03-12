@@ -30,22 +30,13 @@ body {
 }
 
 .mem-title {
-  display: block;
+  display: flex;
   font-size: 2rem;
   font-weight: bold;
   padding: 1rem;
   cursor: pointer;
-}
-.mem-title::after {
-    content: "";
-    background-image: url(./arrow.svg);
-    display: inline-block;
-    background-repeat: no-repeat;
-    width: 2rem;
-    height: 2rem;
-    background-position: center;
-    margin-left: 87%;
-    opacity: 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .mem-img-container {
@@ -59,10 +50,22 @@ body {
   margin: 0 auto;
   width: 60%;
 }
+.icon {
+    display: inline-block;
+    background-image: url(./arrow.svg);
+    background-position: center;
+    background-size: 220%;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 1.5rem;
+    opacity: 0;
+}
 
 .mem-input {
     display: none;
 }
+
+/* Checked style start*/
 
 .mem-input:checked ~ .mem-img-container {
   display: block;
@@ -72,15 +75,30 @@ body {
     color: var(--blue);
 }
 
-.mem-input:checked + .mem-title::after {
+.mem-input:checked + .mem-title>span {
     background-image: url(./arrow_Up.svg);
 }
+
+/* Checked style end*/
+
+/* active style start */
+
+.mem-input:active ~ .mem-title{
+    color: black;
+}
+
+.mem-input:active ~ .mem-img-container {
+    opacity: .5;
+}
+
+
+/* active style end */
 
 @media (hover: hover) {
   .main-content:hover .mem-title {
     color: var(--blue);
   }
-  .container:hover .mem-title::after {
+  .container:hover .mem-title> span {
     opacity: 1;
   }
 
@@ -90,10 +108,3 @@ body {
   
 }
 
-.mem-input:active ~ .mem-title{
-    color: black;
-}
-
-.mem-input:active ~ .mem-img-container {
-    opacity: .5;
-}
