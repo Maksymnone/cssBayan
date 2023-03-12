@@ -23,7 +23,7 @@ body {
 }
 
 .container {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   background-color: var(--main-color);
   border-bottom: 0.2rem solid black;
@@ -41,8 +41,10 @@ body {
 
 .mem-img-container {
   margin: 0 auto;
-  display: none;
-  padding: 3rem 0;
+  display: block;
+  height: 0;
+  opacity: 0;
+    transition: all 0.3s linear;
   cursor: pointer;
 }
 .mem-img {
@@ -51,46 +53,48 @@ body {
   width: 60%;
 }
 .icon {
-    display: inline-block;
-    background-image: url(./arrow.svg);
-    background-position: center;
-    background-size: 220%;
-    background-repeat: no-repeat;
-    width: 2rem;
-    height: 1.5rem;
-    opacity: 0;
+  display: inline-block;
+  background-image: url(./arrow.svg);
+  background-position: center;
+  background-size: 220%;
+  background-repeat: no-repeat;
+  width: 2rem;
+  height: 1.5rem;
+  opacity: 0;
 }
 
 .mem-input {
-    display: none;
+  display: none;
 }
 
 /* Checked style start*/
 
 .mem-input:checked ~ .mem-img-container {
-  display: block;
+  height: auto;
+  opacity: 1;
+  padding: 3rem 0;
 }
 
-.mem-input:checked + .mem-title{
-    color: var(--blue);
+.mem-input:checked + .mem-title {
+  color: var(--blue);
 }
 
-.mem-input:checked + .mem-title>span {
-    background-image: url(./arrow_Up.svg);
+.mem-input:checked + .mem-title > span {
+  transform: rotate(180deg);
+  transition: all 0.25s ease-out;
 }
 
 /* Checked style end*/
 
 /* active style start */
 
-.mem-input:active ~ .mem-title{
-    color: black;
+.mem-input:active ~ label.mem-title {
+  color: black;
 }
 
 .mem-input:active ~ .mem-img-container {
-    opacity: .5;
+  opacity: 0.5;
 }
-
 
 /* active style end */
 
@@ -98,13 +102,13 @@ body {
   .main-content:hover .mem-title {
     color: var(--blue);
   }
-  .container:hover .mem-title> span {
+  .container:hover .mem-title > span {
     opacity: 1;
   }
 
   .container:hover .mem-img-container {
-    display: block;
+    height: auto;
+  opacity: 1;
+  padding: 3rem 0;
   }
-  
 }
-
