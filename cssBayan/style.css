@@ -26,4 +26,74 @@ body {
   width: 70%;
   margin: 0 auto;
   background-color: var(--main-color);
+  border-bottom: 0.2rem solid black;
+}
+
+.mem-title {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+  cursor: pointer;
+}
+.mem-title::after {
+    content: "";
+    background-image: url(./arrow.svg);
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    background-position: center;
+    margin-left: 87%;
+    opacity: 0;
+}
+
+.mem-img-container {
+  margin: 0 auto;
+  display: none;
+  padding: 3rem 0;
+  cursor: pointer;
+}
+.mem-img {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.mem-input {
+    display: none;
+}
+
+.mem-input:checked ~ .mem-img-container {
+  display: block;
+}
+
+.mem-input:checked + .mem-title{
+    color: var(--blue);
+}
+
+.mem-input:checked + .mem-title::after {
+    background-image: url(./arrow_Up.svg);
+}
+
+@media (hover: hover) {
+  .main-content:hover .mem-title {
+    color: var(--blue);
+  }
+  .container:hover .mem-title::after {
+    opacity: 1;
+  }
+
+  .container:hover .mem-img-container {
+    display: block;
+  }
+  
+}
+
+.mem-input:active ~ .mem-title{
+    color: black;
+}
+
+.mem-input:active ~ .mem-img-container {
+    opacity: .5;
 }
